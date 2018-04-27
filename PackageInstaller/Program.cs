@@ -14,14 +14,7 @@ public class Package
     public ICollection<string> Dependencies { get; set; }
 
 
-    public void examples()
-    {
-       
-
-       
-
-    }
-
+   
 
 
 
