@@ -1,0 +1,7 @@
+C:\Users\harveyl\Desktop\HelloWorld\codeExercises\packageinstaller\PackageInstaller\PackageInstaller\bin\Debug\PackageInstaller.exe.config
+C:\Users\harveyl\Desktop\HelloWorld\codeExercises\packageinstaller\PackageInstaller\PackageInstaller\bin\Debug\PackageInstaller.exe
+C:\Users\harveyl\Desktop\HelloWorld\codeExercises\packageinstaller\PackageInstaller\PackageInstaller\bin\Debug\PackageInstaller.pdb
+C:\Users\harveyl\Desktop\HelloWorld\codeExercises\packageinstaller\PackageInstaller\PackageInstaller\obj\Debug\PackageInstaller.csprojResolveAssemblyReference.cache
+C:\Users\harveyl\Desktop\HelloWorld\codeExercises\packageinstaller\PackageInstaller\PackageInstaller\obj\Debug\PackageInstaller.csproj.CoreCompileInputs.cache
+C:\Users\harveyl\Desktop\HelloWorld\codeExercises\packageinstaller\PackageInstaller\PackageInstaller\obj\Debug\PackageInstaller.exe
+C:\Users\harveyl\Desktop\HelloWorld\codeExercises\packageinstaller\PackageInstaller\PackageInstaller\obj\Debug\PackageInstaller.pdb

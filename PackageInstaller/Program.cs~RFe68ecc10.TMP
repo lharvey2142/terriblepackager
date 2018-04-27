@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+
+
+public class Package
+{
+    public string Name { get; set; }
+    public ICollection<string> Dependencies { get; set; }
+
+
+    public void examples()
+    {
+       
+
+        var example3 = new[]
+                {
+        new Package { Name = "R2D2", Dependencies = new List<string> { "C3PO" }},
+        new Package { Name = "C3PO", Dependencies = new List<string> { "BB8" }},
+        new Package { Name = "BB8", Dependencies = new List<string> { "R2D2" }},
+    };
+
+    }
+
+
+
+
+    static void Main(string[] args)
+    {
+
+        var example2 = new[]
+       {
+        new Package { Name = "Luke", Dependencies = new List<string> { "Padme", "Anakin" }},
+        new Package { Name = "Chewbacca", Dependencies = new List<string> { "Han" }},
+        new Package { Name = "Leia", Dependencies = new List<string> { "Padme", "Anakin" }},
+        new Package { Name = "Han", Dependencies = new List<string> { "Millenium Falcon", "Leia" }},
+        new Package { Name = "Jaina", Dependencies = new List<string> { "Han", "Leia" }}
+        };
+
+        
+
+        var packager = new Packager();
+
+
+        packager.InstallPackages(example2);
+    }
+
+
+
+}
+
+public class Packager
+{
+    public void WriteToConsole(IEnumerable items)
+    {
+        foreach(string o in items)
+        {
+            Console.WriteLine(o);
+        }
+    }
+    public IEnumerable<string> InstallPackages(IEnumerable<Package> packages)
+    {
+        List<string> dependencies = new List<string>();
+        List<string> names = new List<string>();
+        IEnumerable<string> answer = Enumerable.Empty<string>();
+        List<string> tempanswer = new List<string>();
+
+        foreach (Package thing in packages)
+        {
+            names.Add(thing.Name);
+            //Console.WriteLine(thing.Name);
+            foreach (string o in thing.Dependencies)
+            {
+                dependencies.Add(o);
+            }
+            
+        }
+        foreach(String thing in dependencies)
+        {
+
+            if (!names.Contains(thing))
+            {
+                if (!answer.Contains(thing))
+                {
+                    tempanswer.Add(thing);
+                }
+            }
+        }
+
+        answer = tempanswer;
+
+
+        Console.WriteLine(answer);
+        var name = Console.ReadLine();
+        return answer;
+    }
+
+
+}
+
