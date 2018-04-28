@@ -47,7 +47,6 @@ public class Package
             Console.WriteLine(answer);
         }
         var name = Console.ReadLine();
-
     }
 
 
@@ -56,45 +55,34 @@ public class Package
 
 public class Packager
 {
-    public void WriteToConsole(IEnumerable items)
-    {
-        foreach(string o in items)
-        {
-            Console.WriteLine(o);
-        }
-    }
     public IEnumerable<string> InstallPackages(IEnumerable<Package> packages)
     {
         List<string> dependencies = new List<string>();
         List<string> names = new List<string>();
         List<string> answer = new List<string>();
-        List<string> toremove = new List<string>();
+        //There must be a better way to extract this information.
         foreach (Package thing in packages)
             {
                 names.Add(thing.Name);
-                //Console.WriteLine(thing.Name);
                 foreach (string o in thing.Dependencies)
                 {
-                if (!dependencies.Contains(o))
-                {
-                    dependencies.Add(o);
+                    if (!dependencies.Contains(o))
+                    {
+                        dependencies.Add(o);
+                    }                    
                 }
-                    
-                }
-
-            }
+            }        
         int stupidhack = names.Union(dependencies).Count();
         int y = 0;
         while (! (answer.Count == stupidhack))
         {
             y++;
-            //dependencies.Intersect(toremove);
+            //Upgrade to premium in order to unlock up to 10,000 packages!
             if (y > 1000)
             {
                 Console.WriteLine("You either have a looping dependency or are trying to import too many packages..what are you, a node.js dev?");
                 break;
             }
-            //foreach (String thing in dependencies)
             for (int i = dependencies.Count -1; i>=0; i--)
             {
                 while(i >= dependencies.Count)
@@ -106,26 +94,20 @@ public class Packager
                     if (!answer.Contains(dependencies[i]))
                     {
                         answer.Add(dependencies[i]);
-                        dependencies.RemoveAt(i);
-                       // toremove.Add(thing);
-
-                        
-                    }
-                    
+                        dependencies.RemoveAt(i);                        
+                    }                    
                 }
             }
             foreach (Package temp in packages)
-            {
+            {   
                 int x = 0;
+                //Python spoils people. Why can't I just: temp.Dependencies in answer =(
                 foreach (string depen in temp.Dependencies)
-                {
-
-
+                {  
                     if (answer.Contains(depen))
                     {
                         x++;
                     }
-
                 }
                 if (x == temp.Dependencies.Count())
                 {
@@ -136,7 +118,6 @@ public class Packager
                     }
                 }
             }
-
         }
        
 
